@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Hungry Nomad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Hungry <span>Nomad</span></a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-btn" onclick="openMenu()">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <div class="logo">Hungry <span>Nomad</span></div>
+      <button onclick="closeMenu()">✕</button>
+    </div>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="menu.html" onclick="closeMenu()">Menu</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <section class="page-banner">
+    <div class="container">
+      <span class="mini-title">About Us</span>
+      <h1>Hungry Nomad</h1>
+      <p>Modern dining, quality food, and a memorable taste experience in Kaduna.</p>
+    </div>
+  </section>
+
+  <section class="section white-section">
+    <div class="container two-col">
+      <div>
+        <span class="mini-title">Who We Are</span>
+        <h2>A restaurant built for food lovers</h2>
+        <p class="text-muted">
+          Hungry Nomad is a modern restaurant in Kaduna known for delicious meals,
+          fresh grills, quality burgers, shawarma, drinks, and a specially curated Chinese Corner.
+        </p>
+        <p class="text-muted">
+          We are focused on quality preparation, attractive presentation, and customer satisfaction.
+          Whether you are stopping by for a quick bite, a family meal, or a special dining experience,
+          Hungry Nomad is designed to serve excellence.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h3>What Makes Us Special</h3>
+        <ul>
+          <li>Stylish restaurant atmosphere</li>
+          <li>Wide meal variety</li>
+          <li>Special Chinese Corner selection</li>
+          <li>Freshly prepared grills and fast meals</li>
+          <li>Easy-to-find location in Kaduna</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="mini-title">Our Vision</span>
+        <h2>To deliver quality meals with a premium hospitality experience</h2>
+        <p>
+          Hungry Nomad aims to become one of the most recognized restaurant brands in Kaduna by combining
+          quality meals, customer comfort, and a distinctive menu experience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hungry Nomad</h3>
+        <p>Premium dining and quality service in Kaduna.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>0808 665 5000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hungry Nomad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("mobileMenu").classList.add("show");
+    }
+
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.remove("show");
+    }
+  </script>
+
+</body>
+</html>
