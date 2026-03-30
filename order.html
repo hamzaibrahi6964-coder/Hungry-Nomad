@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order | Hungry Nomad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Hungry <span>Nomad</span></a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="order.html" class="active">Order</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-btn" onclick="openMenu()">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <div class="logo">Hungry <span>Nomad</span></div>
+      <button onclick="closeMenu()">✕</button>
+    </div>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="menu.html" onclick="closeMenu()">Menu</a>
+    <a href="gallery.html" onclick="closeMenu()">Gallery</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="order.html" onclick="closeMenu()">Order</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <section class="page-banner">
+    <div class="container">
+      <span class="mini-title">Place Your Order</span>
+      <h1>Order Food From Hungry Nomad</h1>
+      <p>Simple and professional order form for restaurant customers.</p>
+    </div>
+  </section>
+
+  <section class="section white-section">
+    <div class="container order-layout">
+      <div class="order-form-box">
+        <h2>Order Form</h2>
+
+        <form id="orderForm" class="order-form" onsubmit="placeOrder(event)">
+          <div class="form-grid">
+            <div>
+              <label>Full Name</label>
+              <input type="text" id="customerName" placeholder="Enter your name" required>
+            </div>
+
+            <div>
+              <label>Phone Number</label>
+              <input type="tel" id="customerPhone" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label>Select Category</label>
+              <select id="category" onchange="updateMeals()" required>
+                <option value="">Choose category</option>
+                <option value="Shawarma">Shawarma</option>
+                <option value="Burgers">Burgers</option>
+                <option value="Fried Chicken">Fried Chicken</option>
+                <option value="Grills">Grills</option>
+                <option value="Drinks">Drinks</option>
+                <option value="Chinese Corner">Chinese Corner</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Select Meal</label>
+              <select id="meal" required>
+                <option value="">Select meal</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label>Quantity</label>
+              <input type="number" id="quantity" min="1" value="1" required>
+            </div>
+
+            <div>
+              <label>Order Type</label>
+              <select id="orderType" required>
+                <option value="">Choose order type</option>
+                <option value="Dine In">Dine In</option>
+                <option value="Takeaway">Takeaway</option>
+                <option value="Delivery">Delivery</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label>Delivery Address</label>
+            <textarea id="address" rows="4" placeholder="Enter delivery address if needed"></textarea>
+          </div>
+
+          <div>
+            <label>Additional Note</label>
+            <textarea id="note" rows="4" placeholder="Extra instruction, pepper level, special request, etc."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary order-submit-btn">Place Order</button>
+        </form>
+      </div>
+
+      <div class="order-summary-box">
+        <h3>Order Information</h3>
+        <div class="summary-card">
+          <p><strong>Phone:</strong> 0808 665 5000</p>
+          <p><strong>Address:</strong> 4 Ibrahim Zaki Rd, beside AAM Neighborhood, Kaduna</p>
+          <p><strong>Hours:</strong> Mon - Sat: 11:00am - 10:45pm</p>
+          <p><strong>Sunday:</strong> 11:00am - 10:30pm</p>
+        </div>
+
+        <div class="summary-card">
+          <h4>Popular Order Picks</h4>
+          <ul>
+            <li>Shawarma with Sausage</li>
+            <li>Double Decker Burger</li>
+            <li>Grilled Chicken (Full)</li>
+            <li>Fruit Juice</li>
+            <li>Chow Mein</li>
+          </ul>
+        </div>
+
+        <div class="summary-card red-summary">
+          <h4>Client-Ready Note</h4>
+          <p>
+            This order page currently works with a front-end success alert.
+            Later I can upgrade it to save orders to Supabase exactly like Taraba Special Suya.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hungry Nomad</h3>
+        <p>Premium dining and fast ordering experience in Kaduna.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="order.html">Order</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Phone</h4>
+        <p>0808 665 5000</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Hungry Nomad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("mobileMenu").classList.add("show");
+    }
+
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.remove("show");
+    }
+
+    const menuData = {
+      "Shawarma": [
+        "Shawarma with Sausage - ₦2,100",
+        "Double Sausage with Cheese - ₦2,400",
+        "Medium Shawarma - ₦2,300",
+        "Jumbo Shawarma (Large) - ₦3,200",
+        "Jumbo with Cheese - ₦3,500",
+        "Chicken Fajita Wrap - ₦2,500"
+      ],
+      "Burgers": [
+        "Outlaw Quarter Pounder (Beef) - ₦2,200",
+        "Double Decker - ₦3,000",
+        "Spicy Chicken Burger - ₦2,200",
+        "Chicken Burger Mountain - ₦2,800",
+        "Burger with Fries - ₦3,000"
+      ],
+      "Fried Chicken": [
+        "Box of 2 - ₦1,600",
+        "Box of 5 - ₦3,600"
+      ],
+      "Grills": [
+        "Grilled Chicken (Full) - ₦3,800",
+        "Grilled Chicken (Half) - ₦2,000",
+        "Grilled Chicken (Big Size) - ₦4,500",
+        "Grilled Tilapia Fish - ₦4,000",
+        "Grilled Cat Fish - ₦3,500",
+        "Chicken Wings (5 Pieces) - ₦1,500",
+        "Chicken Wings (10 Pieces) - ₦3,000"
+      ],
+      "Drinks": [
+        "Fruit Juice - ₦700",
+        "Soda - ₦400",
+        "Water - ₦150",
+        "Chapman - ₦800"
+      ],
+      "Chinese Corner": [
+        "Chow Mein - ₦4,800",
+        "Singaporean Noodles - ₦5,500",
+        "Pad Thai Noodles - ₦7,500",
+        "Schezuan Fried Rice - ₦5,500",
+        "Yangzhou Rice - ₦3,000",
+        "Spring Rolls Chicken - ₦2,000",
+        "Spring Rolls Shrimps - ₦2,000"
+      ]
+    };
+
+    function updateMeals() {
+      const category = document.getElementById("category").value;
+      const mealSelect = document.getElementById("meal");
+
+      mealSelect.innerHTML = '<option value="">Select meal</option>';
+
+      if (menuData[category]) {
+        menuData[category].forEach(item => {
+          const option = document.createElement("option");
+          option.value = item;
+          option.textContent = item;
+          mealSelect.appendChild(option);
+        });
+      }
+    }
+
+    function placeOrder(e) {
+      e.preventDefault();
+
+      const customerName = document.getElementById("customerName").value;
+      const customerPhone = document.getElementById("customerPhone").value;
+      const category = document.getElementById("category").value;
+      const meal = document.getElementById("meal").value;
+      const quantity = document.getElementById("quantity").value;
+      const orderType = document.getElementById("orderType").value;
+      const address = document.getElementById("address").value;
+      const note = document.getElementById("note").value;
+
+      const orderData = {
+        customerName,
+        customerPhone,
+        category,
+        meal,
+        quantity,
+        orderType,
+        address,
+        note,
+        createdAt: new Date().toLocaleString()
+      };
+
+      localStorage.setItem("hungryNomadLastOrder", JSON.stringify(orderData));
+
+      alert(
+        "Order placed successfully!\n\n" +
+        "Name: " + customerName + "\n" +
+        "Meal: " + meal + "\n" +
+        "Quantity: " + quantity + "\n" +
+        "Order Type: " + orderType
+      );
+
+      document.getElementById("orderForm").reset();
+      document.getElementById("meal").innerHTML = '<option value="">Select meal</option>';
+    }
+  </script>
+
+</body>
+</html>
