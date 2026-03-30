@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hungry Nomad | Chinese Corner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Hungry <span>Nomad</span></a>
+
+      <nav class="desktop-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-btn" onclick="openMenu()">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <div class="logo">Hungry <span>Nomad</span></div>
+      <button onclick="closeMenu()">✕</button>
+    </div>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="menu.html" onclick="closeMenu()">Menu</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <section class="hero" style="background-image: linear-gradient(rgba(8,16,38,0.72), rgba(180,18,30,0.58)), url('hungry nomad.jpg');">
+    <div class="container hero-content">
+      <div class="hero-badge">Premium Restaurant Experience</div>
+      <h1>Delicious Meals, Grills & Chinese Corner in Kaduna</h1>
+      <p>
+        Welcome to Hungry Nomad — a stylish restaurant experience serving shawarma, burgers,
+        grills, fried chicken, refreshing drinks, and a special Chinese Corner menu for lovers
+        of bold Asian flavors.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="menu.html" class="btn btn-primary">View Menu</a>
+        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+      </div>
+
+      <div class="hero-info-grid">
+        <div class="hero-info-card">
+          <h3>Location</h3>
+          <p>4 Ibrahim Zaki Rd, beside AAM Neighborhood, Kaduna</p>
+        </div>
+        <div class="hero-info-card">
+          <h3>Call Us</h3>
+          <p>0808 665 5000</p>
+        </div>
+        <div class="hero-info-card">
+          <h3>Opening Hours</h3>
+          <p>Mon - Sat: 11:00am - 10:45pm<br>Sun: 11:00am - 10:30pm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white-section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="mini-title">Why Choose Us</span>
+        <h2>A restaurant brand built for class and comfort</h2>
+        <p>
+          Hungry Nomad combines quality meals, a modern dining atmosphere, and a diverse menu
+          that serves both regular restaurant lovers and customers looking for a unique Chinese Corner experience.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🍔</div>
+          <h3>Rich Menu Variety</h3>
+          <p>From shawarma and burgers to grills, fried chicken, and drinks, there is something for everyone.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🍜</div>
+          <h3>Chinese Corner</h3>
+          <p>Special noodles, fried rice, wings, sauces, and sides prepared with a distinct menu identity.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔥</div>
+          <h3>Fresh Grills</h3>
+          <p>Enjoy full and half grilled chicken, fish, suya sticks, chicken wings, and more.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3>Prime Kaduna Location</h3>
+          <p>Easily accessible at Ibrahim Zaki Road, beside AAM Neighborhood, Kaduna.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container two-col">
+      <div>
+        <span class="mini-title">Our Signature Experience</span>
+        <h2>Professional food presentation with a premium restaurant feel</h2>
+        <p class="text-muted">
+          This website is designed to give Hungry Nomad a strong brand presence online. The visual style
+          uses white, red, and blue to match a modern restaurant identity while keeping the experience clean and elegant.
+        </p>
+        <p class="text-muted">
+          The menu page is specially designed with grouped meal categories and a dedicated Chinese Corner style
+          so the website feels more high-end and organized for customers.
+        </p>
+        <a href="menu.html" class="btn btn-primary">Explore Full Menu</a>
+      </div>
+
+      <div class="home-highlight-card">
+        <h3>Quick Highlights</h3>
+        <ul>
+          <li>Shawarma specials</li>
+          <li>Premium burgers</li>
+          <li>Grilled chicken & fish</li>
+          <li>Fried chicken boxes</li>
+          <li>Fresh juices & soft drinks</li>
+          <li>Chinese noodles & rice menu</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section red-section">
+    <div class="container cta-box">
+      <div>
+        <span class="mini-title white-text">Hungry Already?</span>
+        <h2>Come enjoy a premium food experience at Hungry Nomad</h2>
+        <p>
+          Visit our restaurant, explore our menu, and enjoy tasty meals in a comfortable environment.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a href="menu.html" class="btn btn-light">See Menu</a>
+        <a href="tel:08086655000" class="btn btn-outline-light">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hungry Nomad</h3>
+        <p>A modern restaurant experience in Kaduna with grills, fast meals, drinks, and Chinese Corner specialties.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>4 Ibrahim Zaki Rd, beside AAM Neighborhood, Kaduna</p>
+        <p>0808 665 5000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hungry Nomad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("mobileMenu").classList.add("show");
+    }
+
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.remove("show");
+    }
+  </script>
+
+</body>
+</html>
