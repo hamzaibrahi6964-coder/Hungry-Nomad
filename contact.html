@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Hungry Nomad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Hungry <span>Nomad</span></a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <button class="menu-btn" onclick="openMenu()">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <div class="logo">Hungry <span>Nomad</span></div>
+      <button onclick="closeMenu()">✕</button>
+    </div>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="menu.html" onclick="closeMenu()">Menu</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <section class="page-banner">
+    <div class="container">
+      <span class="mini-title">Contact Us</span>
+      <h1>Visit or Reach Hungry Nomad</h1>
+      <p>We are always ready to serve you with delicious meals and quality service.</p>
+    </div>
+  </section>
+
+  <section class="section white-section">
+    <div class="container contact-grid">
+      <div class="contact-card">
+        <h3>Address</h3>
+        <p>4 Ibrahim Zaki Rd, beside AAM Neighborhood, LGA, Kaduna 802125, Kaduna</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Phone</h3>
+        <p><a href="tel:08086655000">0808 665 5000</a></p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Working Hours</h3>
+        <p>Monday - Saturday: 11:00am - 10:45pm</p>
+        <p>Sunday: 11:00am - 10:30pm</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Price Range</h3>
+        <p>₦1,000 - ₦40,000 depending on order size and selection</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container two-col">
+      <div class="contact-form-box">
+        <h2>Send a Message</h2>
+        <form class="contact-form" onsubmit="sendMessage(event)">
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="tel" id="phone" placeholder="Your Phone Number" required>
+          <textarea id="message" placeholder="Your Message" rows="6" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+
+      <div class="map-box">
+        <h2>Find Us</h2>
+        <p class="text-muted">You can replace this with your real Google Map embed later.</p>
+        <div class="map-placeholder">
+          <p>4 Ibrahim Zaki Rd, beside AAM Neighborhood, Kaduna</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hungry Nomad</h3>
+        <p>Premium dining and quality service in Kaduna.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Phone</h4>
+        <p>0808 665 5000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hungry Nomad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("mobileMenu").classList.add("show");
+    }
+
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.remove("show");
+    }
+
+    function sendMessage(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      alert("Thank you " + name + "! Your message has been received.");
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>
