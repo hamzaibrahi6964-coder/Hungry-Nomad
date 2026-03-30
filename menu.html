@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Hungry Nomad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Hungry <span>Nomad</span></a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-btn" onclick="openMenu()">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <div class="logo">Hungry <span>Nomad</span></div>
+      <button onclick="closeMenu()">✕</button>
+    </div>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="menu.html" onclick="closeMenu()">Menu</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <section class="page-banner small-banner">
+    <div class="container">
+      <span class="mini-title">Our Menu</span>
+      <h1>Explore Our Signature Dishes</h1>
+      <p>Carefully arranged menu categories with a premium restaurant presentation.</p>
+    </div>
+  </section>
+
+  <section class="section white-section">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Main Restaurant Menu</h2>
+        <p>Styled like the menu samples you sent, but with a more professional website presentation.</p>
+      </div>
+
+      <div class="menu-layout">
+        <div class="menu-column">
+
+          <div class="menu-card">
+            <h3>Shawarma</h3>
+            <div class="menu-item"><span>Shawarma with Sausage</span><strong>₦2,100</strong></div>
+            <div class="menu-item"><span>Double Sausage with Cheese</span><strong>₦2,400</strong></div>
+            <div class="menu-item"><span>Medium Shawarma</span><strong>₦2,300</strong></div>
+            <div class="menu-item"><span>Jumbo Shawarma (Large)</span><strong>₦3,200</strong></div>
+            <div class="menu-item"><span>Jumbo with Cheese</span><strong>₦3,500</strong></div>
+            <div class="menu-item"><span>Extra Garlic</span><strong>₦100</strong></div>
+            <div class="menu-item"><span>Extra Pepper</span><strong>₦100</strong></div>
+            <div class="menu-item"><span>Chicken Fajita Wrap</span><strong>₦2,500</strong></div>
+            <div class="menu-item"><span>Chicken Chips and Egg</span><strong>₦2,600</strong></div>
+            <div class="menu-item"><span>Chips and Egg</span><strong>₦2,200</strong></div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Burgers</h3>
+            <div class="menu-item"><span>Outlaw Quarter Pounder (Beef)</span><strong>₦2,200</strong></div>
+            <div class="menu-item"><span>Double Decker</span><strong>₦3,000</strong></div>
+            <div class="menu-item"><span>Spicy Chicken Burger</span><strong>₦2,200</strong></div>
+            <div class="menu-item"><span>Chicken Burger Mountain</span><strong>₦2,800</strong></div>
+            <div class="menu-item"><span>Extra Fries (Small)</span><strong>₦1,000</strong></div>
+            <div class="menu-item"><span>Extra Fries (Large)</span><strong>₦1,800</strong></div>
+            <div class="menu-item"><span>Chilli Loaded Fries & Chicken</span><strong>₦2,500 / ₦3,000</strong></div>
+            <div class="menu-item"><span>Guilty Pleasure Burger</span><strong>₦2,800</strong></div>
+            <div class="menu-item"><span>Burger with Fries</span><strong>₦3,000</strong></div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Fried Chicken</h3>
+            <div class="menu-item"><span>Box of 2</span><strong>₦1,600</strong></div>
+            <div class="menu-item"><span>Box of 5</span><strong>₦3,600</strong></div>
+          </div>
+
+        </div>
+
+        <div class="menu-column">
+
+          <div class="menu-card">
+            <h3>Grills</h3>
+            <div class="menu-item"><span>Grilled Chicken (Full)</span><strong>₦3,800</strong></div>
+            <div class="menu-item"><span>Grilled Chicken (Half)</span><strong>₦2,000</strong></div>
+            <div class="menu-item"><span>Grilled Chicken (Big Size)</span><strong>₦4,500</strong></div>
+            <div class="menu-item"><span>Grilled Tilapia Fish</span><strong>₦4,000</strong></div>
+            <div class="menu-item"><span>Grilled Cat Fish</span><strong>₦3,500</strong></div>
+            <div class="menu-item"><span>Danderu Rago</span><strong>₦2,800</strong></div>
+            <div class="menu-item"><span>Danderu Kaza (Chicken)</span><strong>₦2,500</strong></div>
+            <div class="menu-item"><span>Danderu Kayanciki</span><strong>₦2,500</strong></div>
+            <div class="menu-item"><span>Suya 2 Sticks</span><strong>₦600</strong></div>
+            <div class="menu-item"><span>Kidney</span><strong>₦300</strong></div>
+            <div class="menu-item"><span>Chicken Wings (5 Pieces)</span><strong>₦1,500</strong></div>
+            <div class="menu-item"><span>Chicken Wings (10 Pieces)</span><strong>₦3,000</strong></div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Drinks</h3>
+            <div class="menu-item"><span>Fruit Juice</span><strong>₦700</strong></div>
+            <div class="menu-item"><span>Soda</span><strong>₦400</strong></div>
+            <div class="menu-item"><span>Water</span><strong>₦150</strong></div>
+            <div class="menu-item"><span>Chapman</span><strong>₦800</strong></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section chinese-section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="mini-title chinese-mini">Chinese Corner</span>
+        <h2 class="chinese-title">Special Chinese Corner Menu</h2>
+        <p class="chinese-text">
+          This section has a different visual style, just as you requested.
+        </p>
+      </div>
+
+      <div class="chinese-grid">
+        <div class="chinese-card">
+          <h3>1. Noodles</h3>
+          <div class="menu-item chinese-item"><span>Chow Mein</span><strong>₦4,800</strong></div>
+          <div class="menu-item chinese-item"><span>Singaporean Noodles</span><strong>₦5,500</strong></div>
+          <div class="menu-item chinese-item"><span>Pad Thai Noodles</span><strong>₦7,500</strong></div>
+        </div>
+
+        <div class="chinese-card">
+          <h3>2. Rice</h3>
+          <div class="menu-item chinese-item"><span>Schezuan Fried Rice</span><strong>₦5,500</strong></div>
+          <div class="menu-item chinese-item"><span>Yangzhou Rice</span><strong>₦3,000</strong></div>
+        </div>
+
+        <div class="chinese-card">
+          <h3>3. Sauces</h3>
+          <div class="menu-item chinese-item"><span>Sweet and Sour Chicken</span><strong>₦5,000</strong></div>
+          <div class="menu-item chinese-item"><span>Beef and Broccoli in Oyster Sauce</span><strong>₦5,000</strong></div>
+        </div>
+
+        <div class="chinese-card">
+          <h3>4. Wings</h3>
+          <div class="menu-item chinese-item"><span>Korean Spicy Wings (5pcs)</span><strong>₦3,200</strong></div>
+          <div class="menu-item chinese-item"><span>Buffalo Wings (5pcs)</span><strong>₦3,200</strong></div>
+          <div class="menu-item chinese-item"><span>Mix of 20pcs</span><strong>₦11,000</strong></div>
+        </div>
+
+        <div class="chinese-card">
+          <h3>5. Extra</h3>
+          <div class="menu-item chinese-item"><span>Spring Rolls Chicken</span><strong>₦2,000</strong></div>
+          <div class="menu-item chinese-item"><span>Spring Rolls Shrimps</span><strong>₦2,000</strong></div>
+        </div>
+
+        <div class="chinese-card">
+          <h3>6. Dips</h3>
+          <div class="menu-item chinese-item"><span>Chili Sauce</span><strong>₦1,000</strong></div>
+          <div class="menu-item chinese-item"><span>Sweet Chili Sauce</span><strong>₦1,000</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hungry Nomad</h3>
+        <p>Premium food, premium experience.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Call</h4>
+        <p>0808 665 5000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hungry Nomad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("mobileMenu").classList.add("show");
+    }
+
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.remove("show");
+    }
+  </script>
+
+</body>
+</html>
