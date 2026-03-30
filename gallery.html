@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Hungry Nomad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Hungry <span>Nomad</span></a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="order.html">Order</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-btn" onclick="openMenu()">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <div class="logo">Hungry <span>Nomad</span></div>
+      <button onclick="closeMenu()">✕</button>
+    </div>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="menu.html" onclick="closeMenu()">Menu</a>
+    <a href="gallery.html" onclick="closeMenu()">Gallery</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="order.html" onclick="closeMenu()">Order</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <section class="page-banner">
+    <div class="container">
+      <span class="mini-title">Gallery</span>
+      <h1>Our Restaurant Visual Experience</h1>
+      <p>Professional image spaces for meals, grills, ambience, and special menu highlights.</p>
+    </div>
+  </section>
+
+  <section class="section white-section">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Food & Ambience Gallery</h2>
+        <p>
+          For now, these gallery cards use stylish placeholders. Later, we can replace them
+          with your real restaurant food pictures.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card gallery-bg-1">
+          <div class="gallery-overlay">
+            <h3>Signature Meals</h3>
+            <p>Premium presentation for top dishes</p>
+          </div>
+        </div>
+
+        <div class="gallery-card gallery-bg-2">
+          <div class="gallery-overlay">
+            <h3>Grills & Chicken</h3>
+            <p>Freshly prepared grill selections</p>
+          </div>
+        </div>
+
+        <div class="gallery-card gallery-bg-3">
+          <div class="gallery-overlay">
+            <h3>Chinese Corner</h3>
+            <p>Distinct menu identity and bold flavors</p>
+          </div>
+        </div>
+
+        <div class="gallery-card gallery-bg-4">
+          <div class="gallery-overlay">
+            <h3>Burgers & Fast Meals</h3>
+            <p>Quick bites with premium taste</p>
+          </div>
+        </div>
+
+        <div class="gallery-card gallery-bg-5">
+          <div class="gallery-overlay">
+            <h3>Refreshing Drinks</h3>
+            <p>Juice, soft drinks, water and more</p>
+          </div>
+        </div>
+
+        <div class="gallery-card gallery-bg-6">
+          <div class="gallery-overlay">
+            <h3>Restaurant Ambience</h3>
+            <p>Modern, clean, and client-ready atmosphere</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container center-box">
+      <span class="mini-title">Next Upgrade</span>
+      <h2>Replace placeholders with real food pictures</h2>
+      <p class="text-muted">
+        Once you send the actual food and restaurant photos, I will update this page to look even more expensive and realistic.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Contact Restaurant</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hungry Nomad</h3>
+        <p>Premium restaurant experience in Kaduna.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="order.html">Order</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Phone</h4>
+        <p>0808 665 5000</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Hungry Nomad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("mobileMenu").classList.add("show");
+    }
+
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.remove("show");
+    }
+  </script>
+
+</body>
+</html>
