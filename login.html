@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Hungry Nomad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="simple-auth-page">
+    <div class="simple-auth-card">
+      <h1>Login</h1>
+      <p>Login to place your order.</p>
+
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email Address" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+
+      <p id="message"></p>
+      <p class="auth-link">No account yet? <a href="signup.html">Create one</a></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth } from "./firebase-config.js";
+    import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+    const loginForm = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        message.textContent = "Login successful. Redirecting...";
+        setTimeout(() => {
+          window.location.href = "order.html";
+        }, 1000);
+      } catch (error) {
+        message.textContent = error.message;
+      }
+    });
+  </script>
+
+</body>
+</html>
