@@ -176,116 +176,6 @@
     </div>
   </footer>
 
-  <script>
-    function openMenu() {
-      document.getElementById("mobileMenu").classList.add("show");
-    }
-
-    function closeMenu() {
-      document.getElementById("mobileMenu").classList.remove("show");
-    }
-
-    const menuData = {
-      "Shawarma": [
-        "Shawarma with Sausage - ₦2,100",
-        "Double Sausage with Cheese - ₦2,400",
-        "Medium Shawarma - ₦2,300",
-        "Jumbo Shawarma (Large) - ₦3,200",
-        "Jumbo with Cheese - ₦3,500",
-        "Chicken Fajita Wrap - ₦2,500"
-      ],
-      "Burgers": [
-        "Outlaw Quarter Pounder (Beef) - ₦2,200",
-        "Double Decker - ₦3,000",
-        "Spicy Chicken Burger - ₦2,200",
-        "Chicken Burger Mountain - ₦2,800",
-        "Burger with Fries - ₦3,000"
-      ],
-      "Fried Chicken": [
-        "Box of 2 - ₦1,600",
-        "Box of 5 - ₦3,600"
-      ],
-      "Grills": [
-        "Grilled Chicken (Full) - ₦3,800",
-        "Grilled Chicken (Half) - ₦2,000",
-        "Grilled Chicken (Big Size) - ₦4,500",
-        "Grilled Tilapia Fish - ₦4,000",
-        "Grilled Cat Fish - ₦3,500",
-        "Chicken Wings (5 Pieces) - ₦1,500",
-        "Chicken Wings (10 Pieces) - ₦3,000"
-      ],
-      "Drinks": [
-        "Fruit Juice - ₦700",
-        "Soda - ₦400",
-        "Water - ₦150",
-        "Chapman - ₦800"
-      ],
-      "Chinese Corner": [
-        "Chow Mein - ₦4,800",
-        "Singaporean Noodles - ₦5,500",
-        "Pad Thai Noodles - ₦7,500",
-        "Schezuan Fried Rice - ₦5,500",
-        "Yangzhou Rice - ₦3,000",
-        "Spring Rolls Chicken - ₦2,000",
-        "Spring Rolls Shrimps - ₦2,000"
-      ]
-    };
-
-    function updateMeals() {
-      const category = document.getElementById("category").value;
-      const mealSelect = document.getElementById("meal");
-
-      mealSelect.innerHTML = '<option value="">Select meal</option>';
-
-      if (menuData[category]) {
-        menuData[category].forEach(item => {
-          const option = document.createElement("option");
-          option.value = item;
-          option.textContent = item;
-          mealSelect.appendChild(option);
-        });
-      }
-    }
-
-    function placeOrder(e) {
-      e.preventDefault();
-
-      const customerName = document.getElementById("customerName").value;
-      const customerPhone = document.getElementById("customerPhone").value;
-      const category = document.getElementById("category").value;
-      const meal = document.getElementById("meal").value;
-      const quantity = document.getElementById("quantity").value;
-      const orderType = document.getElementById("orderType").value;
-      const address = document.getElementById("address").value;
-      const note = document.getElementById("note").value;
-
-      const orderData = {
-        customerName,
-        customerPhone,
-        category,
-        meal,
-        quantity,
-        orderType,
-        address,
-        note,
-        createdAt: new Date().toLocaleString()
-      };
-
-      localStorage.setItem("hungryNomadLastOrder", JSON.stringify(orderData));
-
-      alert(
-        "Order placed successfully!\n\n" +
-        "Name: " + customerName + "\n" +
-        "Meal: " + meal + "\n" +
-        "Quantity: " + quantity + "\n" +
-        "Order Type: " + orderType
-      );
-
-      document.getElementById("orderForm").reset();
-      document.getElementById("meal").innerHTML = '<option value="">Select meal</option>';
-    }
-  </script>
-
   <script type="module">
   import { auth } from "./firebase-config.js";
   import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
@@ -308,6 +198,141 @@
       // Not logged in
       authBtn.textContent = "Login";
       authBtn.href = "login.html";
+    }
+  });
+</script>
+
+  <script type="module">
+  import { auth, db } from "./firebase-config.js";
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+  import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+  function openMenu() {
+    document.getElementById("mobileMenu").classList.add("show");
+  }
+
+  function closeMenu() {
+    document.getElementById("mobileMenu").classList.remove("show");
+  }
+
+  window.openMenu = openMenu;
+  window.closeMenu = closeMenu;
+
+  const menuData = {
+    "Shawarma": [
+      "Shawarma with Sausage - ₦2,100",
+      "Double Sausage with Cheese - ₦2,400",
+      "Medium Shawarma - ₦2,300",
+      "Jumbo Shawarma (Large) - ₦3,200",
+      "Jumbo with Cheese - ₦3,500",
+      "Chicken Fajita Wrap - ₦2,500"
+    ],
+    "Burgers": [
+      "Outlaw Quarter Pounder (Beef) - ₦2,200",
+      "Double Decker - ₦3,000",
+      "Spicy Chicken Burger - ₦2,200",
+      "Chicken Burger Mountain - ₦2,800",
+      "Burger with Fries - ₦3,000"
+    ],
+    "Fried Chicken": [
+      "Box of 2 - ₦1,600",
+      "Box of 5 - ₦3,600"
+    ],
+    "Grills": [
+      "Grilled Chicken (Full) - ₦3,800",
+      "Grilled Chicken (Half) - ₦2,000",
+      "Grilled Chicken (Big Size) - ₦4,500",
+      "Grilled Tilapia Fish - ₦4,000",
+      "Grilled Cat Fish - ₦3,500",
+      "Chicken Wings (5 Pieces) - ₦1,500",
+      "Chicken Wings (10 Pieces) - ₦3,000"
+    ],
+    "Drinks": [
+      "Fruit Juice - ₦700",
+      "Soda - ₦400",
+      "Water - ₦150",
+      "Chapman - ₦800"
+    ],
+    "Chinese Corner": [
+      "Chow Mein - ₦4,800",
+      "Singaporean Noodles - ₦5,500",
+      "Pad Thai Noodles - ₦7,500",
+      "Schezuan Fried Rice - ₦5,500",
+      "Yangzhou Rice - ₦3,000",
+      "Spring Rolls Chicken - ₦2,000",
+      "Spring Rolls Shrimps - ₦2,000"
+    ]
+  };
+
+  const category = document.getElementById("category");
+  const meal = document.getElementById("meal");
+  const form = document.getElementById("orderForm");
+
+  let currentUser = null;
+
+  onAuthStateChanged(auth, (user) => {
+    currentUser = user;
+  });
+
+  category.addEventListener("change", () => {
+    meal.innerHTML = '<option value="">Select meal</option>';
+
+    const selectedCategory = category.value;
+
+    if (menuData[selectedCategory]) {
+      menuData[selectedCategory].forEach((item) => {
+        const option = document.createElement("option");
+        option.value = item;
+        option.textContent = item;
+        meal.appendChild(option);
+      });
+    }
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const customerName = document.getElementById("customerName").value.trim();
+    const customerPhone = document.getElementById("customerPhone").value.trim();
+    const selectedCategory = category.value;
+    const selectedMeal = meal.value;
+    const quantity = document.getElementById("quantity").value;
+    const orderType = document.getElementById("orderType").value;
+    const address = document.getElementById("address").value.trim();
+    const note = document.getElementById("note").value.trim();
+
+    if (!currentUser) {
+      alert("Please login first before placing an order.");
+      window.location.href = "login.html";
+      return;
+    }
+
+    if (!selectedCategory || !selectedMeal) {
+      alert("Please select a category and meal.");
+      return;
+    }
+
+    try {
+      const docRef = await addDoc(collection(db, "orders"), {
+        userId: currentUser.uid,
+        customerName: customerName,
+        customerPhone: customerPhone,
+        category: selectedCategory,
+        meal: selectedMeal,
+        quantity: Number(quantity),
+        orderType: orderType,
+        address: address,
+        note: note,
+        status: "pending",
+        createdAt: serverTimestamp()
+      });
+
+      alert("Order placed successfully! Order ID: " + docRef.id);
+
+      form.reset();
+      meal.innerHTML = '<option value="">Select meal</option>';
+    } catch (error) {
+      alert(error.message);
     }
   });
 </script>
