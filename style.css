@@ -1059,3 +1059,15 @@ img {
   color: #c91524;
   font-weight: 700;
 }
+
+.nav-auth-btn {
+  background: #c91524;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.nav-auth-btn:hover {
+  background: #a80f1b;
+}
