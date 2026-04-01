@@ -13,16 +13,14 @@
       <a href="index.html" class="logo">Hungry <span>Nomad</span></a>
 
       <nav class="desktop-nav">
-  <a href="index.html">Home</a>
-  <a href="menu.html">Menu</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="about.html">About</a>
-  <a href="order.html">Order</a>
-  <a href="contact.html">Contact</a>
-
-  <!-- Auth Button -->
-  <a href="login.html" class="nav-auth-btn" id="authBtn">Login</a>
-</nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="order.html">Order</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="nav-auth-btn" id="authBtn">Login</a>
+      </nav>
 
       <button class="menu-btn" onclick="openMenu()">☰</button>
     </div>
@@ -33,12 +31,14 @@
       <div class="logo">Hungry <span>Nomad</span></div>
       <button onclick="closeMenu()">✕</button>
     </div>
+
     <a href="index.html" onclick="closeMenu()">Home</a>
     <a href="menu.html" onclick="closeMenu()">Menu</a>
     <a href="gallery.html" onclick="closeMenu()">Gallery</a>
     <a href="about.html" onclick="closeMenu()">About</a>
     <a href="order.html" onclick="closeMenu()">Order</a>
     <a href="contact.html" onclick="closeMenu()">Contact</a>
+    <a href="login.html" onclick="closeMenu()" class="mobile-auth-btn" id="mobileAuthBtn">Login</a>
   </div>
 
   <section class="hero-section" style="background-image: linear-gradient(rgba(6,16,38,0.78), rgba(201,21,36,0.45)), url('hungry nomad.jpg');">
@@ -288,30 +288,43 @@
   </script>
 
   <script type="module">
-  import { auth } from "./firebase-config.js";
-  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+    import { auth } from "./firebase-config.js";
+    import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-  const authBtn = document.getElementById("authBtn");
+    const authBtn = document.getElementById("authBtn");
+    const mobileAuthBtn = document.getElementById("mobileAuthBtn");
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is logged in
-      authBtn.textContent = "Logout";
-      authBtn.href = "#";
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        authBtn.textContent = "Logout";
+        authBtn.href = "#";
 
-      authBtn.onclick = async () => {
-        await signOut(auth);
-        alert("Logged out");
-        window.location.reload();
-      };
+        mobileAuthBtn.textContent = "Logout";
+        mobileAuthBtn.href = "#";
 
-    } else {
-      // Not logged in
-      authBtn.textContent = "Login";
-      authBtn.href = "login.html";
-    }
-  });
-</script>
+        authBtn.onclick = async (e) => {
+          e.preventDefault();
+          await signOut(auth);
+          alert("Logged out");
+          window.location.reload();
+        };
+
+        mobileAuthBtn.onclick = async (e) => {
+          e.preventDefault();
+          await signOut(auth);
+          closeMenu();
+          alert("Logged out");
+          window.location.reload();
+        };
+      } else {
+        authBtn.textContent = "Login";
+        authBtn.href = "login.html";
+
+        mobileAuthBtn.textContent = "Login";
+        mobileAuthBtn.href = "login.html";
+      }
+    });
+  </script>
 
 </body>
 </html>
