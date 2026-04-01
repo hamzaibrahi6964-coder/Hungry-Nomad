@@ -1071,3 +1071,10 @@ img {
 .nav-auth-btn:hover {
   background: #a80f1b;
 }
+
+.mobile-auth-btn {
+  background: #d61f2c !important;
+  color: white !important;
+  text-align: center;
+  font-weight: 700;
+}
